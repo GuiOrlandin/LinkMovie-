@@ -1,0 +1,13 @@
+{
+  "name": "linkmovie",
+  "private": true,
+  "scripts": {
+    "build": "pnpm -r build",
+    "start:api": "pnpm --filter @linkmovie/api start",
+    "start:worker": "pnpm --filter @linkmovie/worker start"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@11.3.0"
+}

@@ -14,7 +14,7 @@
     "build": "tsc -p tsconfig.json",
     "clean": "rm -rf dist",
     "test": "jest",
-    "prisma:validate": "prisma validate --schema prisma/schema.prisma"
+    "prisma:validate": "prisma validate --schema prisma"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",

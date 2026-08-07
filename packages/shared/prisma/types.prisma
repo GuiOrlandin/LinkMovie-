@@ -1,0 +1,25 @@
+enum VideoStatus {
+  UPLOADING
+  PROCESSING
+  READY
+  FAILED
+}
+
+enum UploadSessionStatus {
+  IN_PROGRESS
+  COMPLETED
+  ABORTED
+}
+
+enum MediaJobStatus {
+  PENDING
+  RUNNING
+  SUCCEEDED
+  FAILED
+  CANCELLED
+}
+
+enum MediaJobType {
+  GenerateThumbnails
+  GenerateTitle
+}

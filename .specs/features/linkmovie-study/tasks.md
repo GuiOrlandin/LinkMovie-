@@ -145,7 +145,7 @@ T5 + T27 → T28
 ### T4: Initial Prisma migration + client export
 
 **What**: Create initial migration and export PrismaClient module/helper from `shared`.
-**Where**: `packages/shared/prisma/migrations/`, `packages/shared/src/infra/prisma/`
+**Where**: `packages/shared/prisma/migrations/`, `packages/shared/src/archive/prisma/`
 **Depends on**: T3
 **Reuses**: T3 schema
 **Requirement**: LM-03
@@ -157,9 +157,9 @@ T5 + T27 → T28
 
 **Done when**:
 
-- [ ] Migration folder exists and applies cleanly against Postgres
-- [ ] Api/Worker can import Prisma client from `shared`
-- [ ] Gate check passes: `pnpm -r build`
+- [x] Migration folder exists and applies cleanly against Postgres
+- [x] Api/Worker can import Prisma client from `shared`
+- [x] Gate check passes: `pnpm -r build`
 
 **Tests**: none
 **Gate**: build

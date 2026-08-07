@@ -13,8 +13,4 @@ export {
   type VideoId,
 } from './domain';
 
-export {
-  createPrismaClient,
-  PrismaClient,
-  type Prisma,
-} from './infra/prisma';
+export { PrismaClient, type Prisma } from './archive/prisma';

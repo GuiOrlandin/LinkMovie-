@@ -145,7 +145,7 @@ T5 + T27 → T28
 ### T4: Initial Prisma migration + client export
 
 **What**: Create initial migration and export PrismaClient module/helper from `shared`.
-**Where**: `packages/shared/prisma/migrations/`, `packages/shared/src/infra/prisma/`
+**Where**: `packages/shared/prisma/migrations/`, `packages/shared/src/archive/prisma/`
 **Depends on**: T3
 **Reuses**: T3 schema
 **Requirement**: LM-03

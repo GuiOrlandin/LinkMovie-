@@ -157,9 +157,9 @@ T5 + T27 → T28
 
 **Done when**:
 
-- [ ] Migration folder exists and applies cleanly against Postgres
-- [ ] Api/Worker can import Prisma client from `shared`
-- [ ] Gate check passes: `pnpm -r build`
+- [x] Migration folder exists and applies cleanly against Postgres
+- [x] Api/Worker can import Prisma client from `shared`
+- [x] Gate check passes: `pnpm -r build`
 
 **Tests**: none
 **Gate**: build

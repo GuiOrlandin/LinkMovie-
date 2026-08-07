@@ -12,3 +12,9 @@ export {
   type UploadToken,
   type VideoId,
 } from './domain';
+
+export {
+  createPrismaClient,
+  PrismaClient,
+  type Prisma,
+} from './infra/prisma';

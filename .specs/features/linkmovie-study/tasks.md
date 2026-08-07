@@ -104,10 +104,10 @@ T5 + T27 → T28
 
 **Done when**:
 
-- [ ] Enums match ADR 0006 exactly
-- [ ] Types exported from `shared`
-- [ ] Gate check passes: `pnpm --filter shared test`
-- [ ] Test count: ≥1 tests pass (no silent deletions)
+- [x] Enums match ADR 0006 exactly
+- [x] Types exported from `shared`
+- [x] Gate check passes: `pnpm --filter shared test`
+- [x] Test count: ≥1 tests pass (no silent deletions)
 
 **Tests**: unit
 **Gate**: quick

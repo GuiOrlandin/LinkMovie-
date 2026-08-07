@@ -102,7 +102,6 @@ model Thumbnail {
   video Video @relation(fields: [videoId], references: [id], onDelete: Cascade)
 
   @@unique([videoId, ordinal])
-  @@index([videoId])
 }
 
 /// Share identity: 8-char base62 code is the ShortLink identity (ADR 0008)

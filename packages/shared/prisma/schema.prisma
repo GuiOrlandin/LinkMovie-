@@ -1,0 +1,118 @@
+// Core entities — SPEC §7, ADR 0006 (statuses), ADRs 0004–0008 (fields).
+// Language: CONTEXT.md
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum VideoStatus {
+  UPLOADING
+  PROCESSING
+  READY
+  FAILED
+}
+
+enum UploadSessionStatus {
+  IN_PROGRESS
+  COMPLETED
+  ABORTED
+}
+
+enum MediaJobStatus {
+  PENDING
+  RUNNING
+  SUCCEEDED
+  FAILED
+  CANCELLED
+}
+
+enum MediaJobType {
+  GenerateThumbnails
+  GenerateTitle
+}
+
+model Video {
+  id         String      @id @default(cuid())
+  status     VideoStatus
+  title      String?
+  durationMs Int?
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+
+  uploadSessions UploadSession[]
+  mediaJobs      MediaJob[]
+  thumbnails     Thumbnail[]
+  shortLinks     ShortLink[]
+}
+
+model UploadSession {
+  id          String              @id @default(cuid())
+  uploadToken String              @unique
+  videoId     String
+  status      UploadSessionStatus
+  /// MinIO multipart upload id (ADR 0004)
+  uploadId    String
+  objectKey   String
+  partSize    Int
+  /// Reason when status is ABORTED (e.g. TTL expiration) — ADR 0004 / 0006
+  abortReason String?
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+
+  video Video @relation(fields: [videoId], references: [id], onDelete: Cascade)
+
+  @@index([videoId])
+  @@index([status])
+}
+
+model MediaJob {
+  id            String         @id @default(cuid())
+  videoId       String
+  type          MediaJobType
+  status        MediaJobStatus
+  failureReason String?
+  /// Retriable attempts consumed; ADR 0005 caps at 3
+  attemptCount  Int            @default(0)
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  video Video @relation(fields: [videoId], references: [id], onDelete: Cascade)
+
+  @@index([videoId])
+  @@index([status])
+}
+
+model Thumbnail {
+  id          String   @id @default(cuid())
+  videoId     String
+  ordinal     Int
+  objectKey   String
+  contentType String
+  positionPct Int
+  width       Int
+  height      Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  video Video @relation(fields: [videoId], references: [id], onDelete: Cascade)
+
+  @@unique([videoId, ordinal])
+  @@index([videoId])
+}
+
+/// Share identity: 8-char base62 code is the ShortLink identity (ADR 0008)
+model ShortLink {
+  code      String   @id
+  videoId   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  video Video @relation(fields: [videoId], references: [id], onDelete: Cascade)
+
+  @@index([videoId])
+}

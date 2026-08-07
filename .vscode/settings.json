@@ -1,0 +1,4 @@
+{
+  "prisma.schemaPath": "packages/shared/prisma",
+  "prisma.pinToPrisma6": true
+}

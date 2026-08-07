@@ -6,7 +6,8 @@
     "build": "nest build",
     "start": "nest start",
     "start:dev": "nest start --watch",
-    "start:prod": "node dist/main.js"
+    "start:prod": "node dist/main.js",
+    "type:check": "tsc --noEmit"
   },
   "dependencies": {
     "@linkmovie/shared": "workspace:*",

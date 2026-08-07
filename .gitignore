@@ -9,3 +9,6 @@ coverage/
 *.log
 .nest/
 .pnpm-store/
+.specs/
+.cursor/
+docs/

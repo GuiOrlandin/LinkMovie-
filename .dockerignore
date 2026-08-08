@@ -1,0 +1,12 @@
+# Ignore local env and bulky contexts; keep Dockerfiles lean.
+.env
+.env.*
+!.env.example
+node_modules
+**/node_modules
+**/dist
+.git
+.pnpm-store
+coverage
+*.log
+.DS_Store

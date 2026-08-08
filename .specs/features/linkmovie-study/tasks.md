@@ -58,6 +58,12 @@ T23 → T24 → T25 → T26 → T27
 T5 + T27 → T28
 ```
 
+### Phase 8: Storytelling (after stack is real)
+
+```
+T5 ──► T29 (LinkedIn infra/messaging post; prefer after T28)
+```
+
 ---
 
 ## Task Breakdown
@@ -183,14 +189,41 @@ T5 + T27 → T28
 
 **Done when**:
 
-- [ ] `docker compose config` is valid
-- [ ] Postgres, MinIO, RabbitMQ, migrate services defined
-- [ ] migrate runs `prisma migrate deploy` before deployables
+- [x] `docker compose config` is valid
+- [x] Postgres, MinIO, RabbitMQ, migrate services defined
+- [x] migrate runs `prisma migrate deploy` before deployables
 
 **Tests**: none
 **Gate**: build
 
 **Commit**: `chore: add compose stack with migrate`
+
+---
+
+### T29: LinkedIn post — infra & messaging rationale
+
+**What**: Turn the draft in `linkedin-infra-messaging.md` into a publish-ready LinkedIn post (and optional short carousel outline) explaining why Postgres, MinIO, RabbitMQ, Api/Worker split, and Compose `migrate` were chosen — including trade-offs vs Kafka / proxying uploads / managed cloud.
+**Where**: `.specs/features/linkmovie-study/linkedin-infra-messaging.md` (draft → final), optional export outside the repo for posting
+**Depends on**: T5 (stack exists); ideally after T28 so the full Compose story is true end-to-end
+**Reuses**: ADR 0001, 0002, 0003, 0005; SPEC §4; draft written during T5
+**Requirement**: LM-02 (narrative), study storytelling
+
+**Tools**:
+
+- MCP: NONE
+- Skill: NONE
+
+**Done when**:
+
+- [ ] Final post text fits LinkedIn length (~1.3k–3k chars sweet spot) with a clear hook + 3–5 bullets + closing CTA
+- [ ] Explicitly covers MinIO (presign/multipart), RabbitMQ vs Kafka, Api publish / Worker consume, migrate-before-deploy
+- [ ] Lists 2–3 honest non-goals / production upgrades
+- [ ] Draft file updated to “Final” status (or sibling `linkedin-infra-messaging.final.md`)
+
+**Tests**: none
+**Gate**: none
+
+**Commit**: `docs: linkedin infra and messaging post`
 
 ---
 

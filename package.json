@@ -3,6 +3,8 @@
   "private": true,
   "scripts": {
     "build": "pnpm -r build",
+    "test": "pnpm --filter @linkmovie/shared test",
+    "typecheck": "pnpm --filter @linkmovie/api type:check",
     "start:api": "pnpm --filter @linkmovie/api start",
     "start:worker": "pnpm --filter @linkmovie/worker start"
   },

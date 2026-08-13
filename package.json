@@ -4,7 +4,7 @@
   "scripts": {
     "build": "pnpm -r build",
     "test": "pnpm --filter @linkmovie/shared test",
-    "typecheck": "pnpm --filter @linkmovie/api type:check",
+    "typecheck": "pnpm --filter @linkmovie/shared build && pnpm --filter @linkmovie/api type:check",
     "start:api": "pnpm --filter @linkmovie/api start",
     "start:worker": "pnpm --filter @linkmovie/worker start"
   },

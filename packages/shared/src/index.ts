@@ -58,3 +58,15 @@ export {
 export { AmqpMediaJobPublisher } from "./infra/rabbitmq/media-job-publisher";
 
 export type { AmqpMediaJobPublisherDeps } from "./infra/rabbitmq/types";
+
+export { PrismaModule } from "./infra/nest/prisma.module";
+export { PrismaService } from "./infra/nest/prisma.service";
+export { ObjectStorageModule } from "./infra/nest/object-storage.module";
+export { RabbitMqModule } from "./infra/nest/rabbitmq.module";
+export { MediaJobPublisherModule } from "./infra/nest/media-job-publisher.module";
+export {
+  AMQP_CHANNEL,
+  AMQP_CONNECTION,
+  MEDIA_JOB_PUBLISHER,
+  OBJECT_STORAGE,
+} from "./infra/nest/tokens";

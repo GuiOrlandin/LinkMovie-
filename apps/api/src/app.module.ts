@@ -1,7 +1,17 @@
 import { Module } from '@nestjs/common';
-import { SHARED_PACKAGE } from '@linkmovie/shared';
+import {
+  MediaJobPublisherModule,
+  ObjectStorageModule,
+  PrismaModule,
+  RabbitMqModule,
+} from '@linkmovie/shared';
 
-@Module({})
-export class AppModule {
-  static readonly sharedPackage = SHARED_PACKAGE;
-}
+@Module({
+  imports: [
+    PrismaModule,
+    ObjectStorageModule,
+    RabbitMqModule,
+    MediaJobPublisherModule,
+  ],
+})
+export class AppModule {}

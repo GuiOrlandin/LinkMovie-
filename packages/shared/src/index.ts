@@ -6,6 +6,7 @@ export {
   asUploadToken,
   asVideoId,
   MediaJobStatus,
+  partSize,
   UploadSessionStatus,
   VideoStatus,
   type MediaJobId,

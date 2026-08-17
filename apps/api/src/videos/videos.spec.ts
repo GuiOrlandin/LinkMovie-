@@ -3,8 +3,8 @@ import {
   PrismaService,
   UploadSessionStatus,
   VideoStatus,
-  type ObjectStoragePort,
 } from "@linkmovie/shared";
+import type { ObjectStoragePort } from "@linkmovie/shared";
 import { Global, INestApplication, Module } from "@nestjs/common";
 import { Test } from "@nestjs/testing";
 import request from "supertest";

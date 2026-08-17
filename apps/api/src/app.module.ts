@@ -5,6 +5,7 @@ import {
   PrismaModule,
   RabbitMqModule,
 } from '@linkmovie/shared';
+import { VideosModule } from './videos/videos.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import {
     ObjectStorageModule,
     RabbitMqModule,
     MediaJobPublisherModule,
+    VideosModule,
   ],
 })
 export class AppModule {}

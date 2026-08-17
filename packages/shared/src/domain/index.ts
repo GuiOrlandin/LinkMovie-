@@ -12,3 +12,5 @@ export {
   type UploadToken,
   type VideoId,
 } from './ids';
+
+export { partSize } from './part-size';

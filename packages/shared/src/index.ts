@@ -14,7 +14,7 @@ export {
   type VideoId,
 } from "./domain";
 
-export { PrismaClient, type Prisma } from "./archive/prisma";
+export { PrismaClient, type Prisma, type UploadSession } from "./archive/prisma";
 
 export type {
   CompletedPart,
